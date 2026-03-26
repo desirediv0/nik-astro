@@ -77,30 +77,10 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   if (!colorConfig.length) {
     return null
   }
-
-  return (
-    <style
-      // allowed: runtime CSS vars for chart theming
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-      itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
-  })
-  .join('\n')}
-}
-`,
-          )
-          .join('\n'),
-      }}
-    />
-  )
+  // Keep chart rendering stable without inline style tags.
+  void id
+  void colorConfig
+  return null
 }
 
 const ChartTooltip = RechartsPrimitive.Tooltip
