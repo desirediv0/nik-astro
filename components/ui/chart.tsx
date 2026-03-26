@@ -80,6 +80,7 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 
   return (
     <style
+      // allowed: runtime CSS vars for chart theming
       dangerouslySetInnerHTML={{
         __html: Object.entries(THEMES)
           .map(
@@ -211,6 +212,7 @@ function ChartTooltipContent({
                             'my-0.5': nestLabel && indicator === 'dashed',
                           },
                         )}
+                        // allowed: runtime color from chart payload
                         style={
                           {
                             '--color-bg': indicatorColor,
@@ -291,6 +293,7 @@ function ChartLegendContent({
             ) : (
               <div
                 className="h-2 w-2 shrink-0 rounded-[2px]"
+                // allowed: runtime legend color from chart payload
                 style={{
                   backgroundColor: item.color,
                 }}
