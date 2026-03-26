@@ -235,7 +235,7 @@ export default function Feedback() {
                     {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[12px]" />)}
                   </div>
                 </div>
-                <p className="font-sans text-[14.5px] text-[#3a3020] leading-[1.72] italic mb-4">"{r.text}"</p>
+                <p className="font-sans text-[14.5px] text-[#3a3020] leading-[1.72] italic mb-4">&quot;{r.text}&quot;</p>
                 <div className="flex items-center justify-between pt-3.5 border-t border-cream-border">
                   <div className="flex items-center gap-1.5">
                     <FaMapMarkerAlt className="text-gold text-[11px]" />

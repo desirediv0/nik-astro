@@ -155,7 +155,7 @@ export default function About() {
       <section className="py-[72px] px-6 bg-white text-center">
         <div className="w-px h-[52px] bg-gradient-to-b from-transparent to-gold mx-auto mb-7" />
         <blockquote className="font-serif text-[28px] italic text-[#2a2210] leading-[1.55] max-w-[820px] mx-auto">
-          "Astrology is not magic — it is a magical tool that guides people out of their problems and helps them live life to its full potential."
+          &quot;Astrology is not magic — it is a magical tool that guides people out of their problems and helps them live life to its full potential.&quot;
         </blockquote>
         <div className="mt-8 flex items-center justify-center gap-3">
           <div className="h-px w-10 bg-gradient-to-r from-transparent to-gold" />

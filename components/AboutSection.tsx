@@ -61,7 +61,7 @@ export default function AboutSection() {
             </p>
 
             <blockquote className="border-l-[3px] border-l-gold pl-5 font-serif italic text-xl text-[#3a2e10] leading-[1.6] mb-8">
-              "Astrology is not magic — it is a magical tool that guides people out of their problems."
+              &quot;Astrology is not magic — it is a magical tool that guides people out of their problems.&quot;
             </blockquote>
 
             <Link

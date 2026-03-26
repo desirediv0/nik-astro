@@ -45,7 +45,7 @@ export default function Testimonial() {
                                 {[1, 2, 3, 4, 5].map(n => <FaStar key={n} className="text-gold text-[13px]" />)}
                             </div>
                             <p className="font-sans text-[14.5px] text-[#3a2e10] leading-[1.75] mb-5 italic">
-                                "{r.text}"
+                                &quot;{r.text}&quot;
                             </p>
                             <div className="flex items-center gap-2.5 pt-4 border-t border-cream-border">
                                 <div className="w-[38px] h-[38px] rounded-full bg-gradient-to-br from-[#ffe8a0] to-[#ffd060] flex items-center justify-center shrink-0">

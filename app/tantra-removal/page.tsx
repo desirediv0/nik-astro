@@ -331,7 +331,7 @@ export default function TantraRemoval() {
             Seek Help from a <span className="text-[#c9a84c] italic">Specialist</span>
           </h2>
           <p className="mb-9 font-sans text-[15px] leading-[1.75] text-[#a89060]">
-            If you suspect you or your family may be affected by negative Tantra, consult Nikhil Ji immediately. Message on WhatsApp and type <strong className="text-[#c9a84c] font-medium">"Tantra Removal Charges"</strong>.
+            If you suspect you or your family may be affected by negative Tantra, consult Nikhil Ji immediately. Message on WhatsApp and type <strong className="text-[#c9a84c] font-medium">&quot;Tantra Removal Charges&quot;</strong>.
           </p>
           <a href="https://wa.me/918377844158?text=Tantra%20Removal%20Charges" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
             <FaWhatsapp className="text-[20px]" />
