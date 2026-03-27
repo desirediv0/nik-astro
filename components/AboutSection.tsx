@@ -21,15 +21,14 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+    <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
       <div className="max-w-[1100px] mx-auto">
         <div className="bg-[#0e0c08] rounded-[18px] border border-[#2a2210] mb-16 grid grid-cols-2 lg:grid-cols-4 overflow-hidden">
           {credentials.map(({ value, label }, i) => (
             <div
               key={i}
-              className={`p-7 text-center ${i % 2 === 0 ? 'border-r border-[#2a2210] lg:border-r' : ''} ${
-                i < 2 ? 'border-b border-[#2a2210] lg:border-b-0' : ''
-              } ${i === 2 ? 'lg:border-r border-[#2a2210]' : ''}`}
+              className={`p-7 text-center ${i % 2 === 0 ? 'border-r border-[#2a2210] lg:border-r' : ''} ${i < 2 ? 'border-b border-[#2a2210] lg:border-b-0' : ''
+                } ${i === 2 ? 'lg:border-r border-[#2a2210]' : ''}`}
             >
               <p className="font-serif text-[36px] font-bold text-[#c9a84c] leading-none">{value}</p>
               <p className="font-sans text-xs text-[#7a6840] mt-1.5">{label}</p>

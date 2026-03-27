@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { FaWhatsapp, FaChevronRight, FaStar } from 'react-icons/fa'
 import { MdVerified } from 'react-icons/md'
 import { GiStarShuriken } from 'react-icons/gi'
+import Image from 'next/image'
 
 const trustPills = [
   '20+ Years Practice',
@@ -12,7 +13,7 @@ const trustPills = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#080608] via-[#12100a] to-[#1a1508] py-20 px-6 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#080608] via-[#12100a] to-[#1a1508] py-10 md:py-16 px-6 md:py-14">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_60%_40%,rgba(184,134,11,0.10)_0%,transparent_65%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(184,134,11,0.04)_1px,transparent_1px)] bg-[length:28px_28px] pointer-events-none" />
 
@@ -75,12 +76,7 @@ export default function Hero() {
           <div className="relative hidden md:block">
             <div className="absolute -inset-4 rounded-[24px] bg-[radial-gradient(ellipse_at_center,rgba(184,134,11,0.12)_0%,transparent_70%)] pointer-events-none" />
 
-            <div className="relative aspect-[3/4] rounded-[22px] overflow-hidden border border-[rgba(184,134,11,0.25)] shadow-[0_24px_64px_rgba(0,0,0,0.5)] bg-gradient-to-br from-[#1a1408] to-[#0e0c08] flex flex-col items-center justify-center gap-3">
-              <GiStarShuriken className="text-gold text-[32px] opacity-30" />
-              <p className="font-sans text-[11px] text-[#5a4e35] tracking-[2px] uppercase">
-                Nikhil Ji Photo
-              </p>
-            </div>
+            <Image src="/nikhil-ji.png" alt="Nikhil Ji" width={500} height={500} />
 
             <div className="absolute -bottom-4 -left-5 bg-cream rounded-[14px] px-[18px] py-[14px] border border-cream-border shadow-[0_8px_28px_rgba(0,0,0,0.12)]">
               <div className="flex items-center gap-2">

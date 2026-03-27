@@ -9,6 +9,7 @@ import {
   GiPrayer
 } from 'react-icons/gi'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Puja & Remedies – NIK ASTRO',
@@ -166,10 +167,7 @@ export default function PujaRemedies() {
           </div>
 
           <div className="rounded-[20px] overflow-hidden border border-[rgba(184,134,11,0.3)] shadow-[0_24px_64px_rgba(0,0,0,0.5)]">
-            <div className="relative aspect-[4/3] bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] flex items-center justify-center">
-              <GiPrayer className="text-gold/35 text-[32px]" />
-              <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#5a4e35]">Nikhil Ji Puja Photo</span>
-            </div>
+            <Image src="/nikhil-ji-puja.png" alt="Nikhil Ji" width={800} height={500} />
           </div>
         </div>
       </section>
@@ -182,18 +180,28 @@ export default function PujaRemedies() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {[
-              'Rudrabhishek — Shivalinga',
-              'Devi Puja — Navaratra',
-              'Havan Kund Preparation',
-              'Anushthan Ritual',
-            ].map((label) => (
-              <div key={label} className="rounded-[14px] overflow-hidden border border-cream-border shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] flex items-center justify-center">
-                  <GiFlame className="text-gold/40 text-[22px]" />
-                  <span className="absolute bottom-3 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">{label}</span>
+              { label: 'Rudrabhishek — Shivalinga', image: '/rudrabhishek.jpg' },
+              { label: 'Devi Puja — Navaratra', image: '/devi-puja-setup.jpg' },
+              { label: 'Havan Kund Preparation', image: '/havan-kund.jpg' },
+              { label: 'Anushthan Ritual', image: '/anushthan-ritual.jpg' },
+            ].map(({ label, image }) => (
+              <div
+                key={label}
+                className="rounded-[14px] overflow-hidden border border-cream-border shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+              >
+                <div className="w-full h-[160px] relative">
+                  <Image
+                    src={image}
+                    alt={label}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
+
                 <div className="p-2.5 px-3.5 pb-3 bg-white">
-                  <p className="font-sans text-[12px] text-[#a89060] tracking-[0.5px]">{label}</p>
+                  <p className="font-sans text-[12px] text-[#a89060] tracking-[0.5px]">
+                    {label}
+                  </p>
                 </div>
               </div>
             ))}
@@ -201,7 +209,7 @@ export default function PujaRemedies() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">Ritual Services</p>
@@ -239,7 +247,7 @@ export default function PujaRemedies() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">Remedy Solutions</p>
@@ -290,14 +298,11 @@ export default function PujaRemedies() {
       <section className="px-6 pb-20 bg-white">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
           {[
-            { label: 'Havan Kund – Fire Ritual', sub: 'Sacred fire ritual performed at NIK ASTRO' },
-            { label: 'Devi Puja Setup', sub: 'Goddess worship with flowers & diyas' },
+            { label: 'Havan Kund – Fire Ritual', sub: 'Sacred fire ritual performed at NIK ASTRO', image: '/havan-kund.jpg' },
+            { label: 'Devi Puja Setup', sub: 'Goddess worship with flowers & diyas', image: '/devi-puja-setup.jpg' },
           ].map((img) => (
             <div key={img.label} className="rounded-[18px] overflow-hidden border border-cream-border shadow-[0_4px_20px_rgba(184,134,11,0.08)]">
-              <div className="relative aspect-video bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] flex items-center justify-center">
-                <GiFlame className="text-gold/35 text-[28px]" />
-                <span className="absolute bottom-4 font-sans text-[11px] tracking-[2px] uppercase text-[#c9a84c]">{img.label}</span>
-              </div>
+              <Image src={img.image} alt={img.label} width={800} height={500} />
               <div className="p-3.5 px-[18px] pb-4 bg-white">
                 <p className="font-serif text-[15px] font-semibold text-ink mb-1">{img.label}</p>
                 <p className="font-sans text-[12.5px] text-[#a89060]">{img.sub}</p>
@@ -307,7 +312,7 @@ export default function PujaRemedies() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1000px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">The Process</p>
@@ -337,7 +342,7 @@ export default function PujaRemedies() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f]">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f]">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="font-sans text-[11px] uppercase tracking-[3px] text-gold mb-3">Why It Works</p>
@@ -383,7 +388,7 @@ export default function PujaRemedies() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
         <div className="max-w-[560px] mx-auto">
           <div className="mb-5 flex justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[14px]" />)}

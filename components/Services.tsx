@@ -72,7 +72,7 @@ const pujas = [
 export default function Services() {
   return (
     <>
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-[52px]">
             <p className="font-sans text-[11px] text-gold tracking-[3px] uppercase mb-3">

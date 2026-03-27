@@ -99,7 +99,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-[52px] items-start">
 
@@ -314,7 +314,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
         <div className="max-w-[560px] mx-auto">
           <GiStarShuriken className="text-gold text-[22px] mb-5 mx-auto" />
           <h2 className="mb-4 text-[34px] md:text-[40px] text-white leading-[1.2]">

@@ -11,7 +11,7 @@ const quickLinks = [
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-20 px-6 bg-gradient-to-br from-[#0e0c08] via-[#1e1a0f] to-[#261f0e]">
+    <section className="relative overflow-hidden py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] via-[#1e1a0f] to-[#261f0e]">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_60%,rgba(184,134,11,0.09)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(184,134,11,0.04)_1px,transparent_1px)] bg-[length:28px_28px] pointer-events-none" />
 

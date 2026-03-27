@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa'
 import { MdVerified } from 'react-icons/md'
 import { GiStarShuriken, GiYinYang, GiCrystalBall, GiScrollUnfurled } from 'react-icons/gi'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About Nikhil Ji – Jyotish Acharya | NIK ASTRO',
@@ -127,10 +128,7 @@ export default function About() {
               </div>
             </div>
             <div className="rounded-[20px] border border-[rgba(184,134,11,0.25)] bg-[#111] overflow-hidden">
-              <div className="aspect-[3/4] bg-gradient-to-br from-[#18140b] to-[#0f0d08] relative flex items-center justify-center">
-                <GiCrystalBall className="text-gold/35 text-4xl" />
-                <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">Nikhil Ji Photo</span>
-              </div>
+              <Image src="/nikhil-ji.png" alt="Nikhil Ji" width={800} height={500} />
             </div>
           </div>
         </div>
@@ -165,7 +163,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="mx-auto max-w-[1100px]">
           <div className="mb-12 text-center">
             <p className="section-label">Life & Learning</p>
@@ -190,10 +188,7 @@ export default function About() {
             </div>
             <div className="flex flex-col gap-5">
               <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden">
-                <div className="aspect-[4/3] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] relative flex items-center justify-center">
-                  <GiScrollUnfurled className="text-gold/35 text-3xl" />
-                  <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">Learning / Study Image</span>
-                </div>
+                <Image src="/learning.jpg" alt="Learning" width={800} height={500} />
               </div>
               <div className="bg-[#fffdf7] border-l-[3px] border-l-gold rounded-[16px] p-6 border border-[#f0e8c8]">
                 <h3 className="font-serif text-[21px] mb-2">Trained by Legends</h3>
@@ -215,7 +210,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="section-label">Areas of Mastery</p>
@@ -235,15 +230,12 @@ export default function About() {
             </div>
           </div>
           <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden">
-            <div className="aspect-[4/3] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] relative flex items-center justify-center">
-              <GiYinYang className="text-gold/35 text-4xl" />
-              <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">Astrology Image</span>
-            </div>
+            <Image src="/astrology.jpg" alt="Astrology" width={800} height={500} />
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="mx-auto max-w-[1100px]">
           <div className="text-center mb-12">
             <p className="section-label">Beyond Astrology</p>
@@ -253,10 +245,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden mb-6">
-                <div className="aspect-[16/9] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] relative flex items-center justify-center">
-                  <GiCrystalBall className="text-gold/35 text-3xl" />
-                  <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">Occult / Spiritual Image</span>
-                </div>
+                <Image src="/occult.jpg" alt="Occult" width={800} height={500} />
               </div>
               <div className="bg-[#0e0c08] rounded-[16px] p-7 border border-[#2a2210]">
                 <h3 className="font-serif text-[21px] text-[#f0e8c8] mb-5">Fields of Mastery</h3>
@@ -290,8 +279,8 @@ export default function About() {
                 <h3 className="font-serif text-[21px] mb-2">A Rare Combination</h3>
                 <p className="font-sans text-[14px] leading-[1.72] text-body-text">
                   Nikhil Ji is one of the very few practitioners who truly knows the complete process of <strong className="text-[#3a2e10]">Pran
-                  Pratishtha</strong> of Yantras, Kavach, and sacred items — and who effectively combines <strong className="text-[#3a2e10]">Mantra,
-                  Tantra, and Yantra</strong> in remedies for clients.
+                    Pratishtha</strong> of Yantras, Kavach, and sacred items — and who effectively combines <strong className="text-[#3a2e10]">Mantra,
+                      Tantra, and Yantra</strong> in remedies for clients.
                 </p>
               </div>
               <div className="bg-[#fffdf7] border-l-[3px] border-l-gold rounded-[16px] p-6 border border-[#f0e8c8]">
@@ -306,7 +295,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="mx-auto max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="section-label">Professional Services</p>
@@ -328,10 +317,7 @@ export default function About() {
             </div>
           </div>
           <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden">
-            <div className="aspect-[3/4] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] relative flex items-center justify-center">
-              <GiScrollUnfurled className="text-gold/35 text-3xl" />
-              <span className="absolute bottom-4 font-sans text-[11px] uppercase tracking-[2px] text-[#c9a84c]">Services / Consultation Image</span>
-            </div>
+            <Image src="/Services.png" alt="Services" width={800} height={500} />
           </div>
         </div>
       </section>
@@ -349,7 +335,7 @@ export default function About() {
               </h2>
               <p className="mb-7 font-sans text-[14.5px] leading-[1.8] text-[#a89060]">
                 Nikhil Ji&apos;s teachings reach millions worldwide. His YouTube channel earned the <strong className="text-[#c9a84c]">Silver Play
-                Button</strong> — a testament to the trust people place in his guidance on astrology and spiritual practices.
+                  Button</strong> — a testament to the trust people place in his guidance on astrology and spiritual practices.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)] px-4 py-2 font-sans text-[13px] text-[#a89060]">
@@ -371,7 +357,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] via-[#1e1a0f] to-[#261f0e]">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] via-[#1e1a0f] to-[#261f0e]">
         <div className="mx-auto max-w-[560px] text-center">
           <div className="mb-5 flex justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => (

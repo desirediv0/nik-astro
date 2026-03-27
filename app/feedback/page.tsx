@@ -119,7 +119,7 @@ export default function Feedback() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">Watch & Listen</p>
@@ -161,7 +161,7 @@ export default function Feedback() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">Direct Messages</p>
@@ -199,7 +199,7 @@ export default function Feedback() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <div className="inline-flex items-center gap-2 bg-[#f0f2ff] border border-[#dbe0ff] rounded-full px-4 py-1.5 mb-4">
@@ -272,7 +272,7 @@ export default function Feedback() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
         <div className="max-w-[560px] mx-auto">
           <div className="mb-5 flex justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[14px]" />)}

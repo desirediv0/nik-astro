@@ -1,10 +1,10 @@
 import {
-  FaWhatsapp, FaStar, FaCheckCircle, 
+  FaWhatsapp, FaStar, FaCheckCircle,
 } from 'react-icons/fa'
 import { MdVerified, MdWarning } from 'react-icons/md'
 import {
   GiStarShuriken, GiTriquetra, GiShield, GiCrystalBall,
-  GiScrollUnfurled,  GiFireflake, GiAngelWings,
+  GiScrollUnfurled, GiFireflake, GiAngelWings,
   GiSpiralHilt, GiBrokenShield, GiHealing, GiBrain,
   GiHeartburn, GiMoon,
 } from 'react-icons/gi'
@@ -136,7 +136,7 @@ export default function TantraRemoval() {
         </div>
       </div>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <p className="section-label">Understanding the Subject</p>
@@ -206,7 +206,7 @@ export default function TantraRemoval() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
             <p className="section-label">Warning Signs</p>
@@ -234,7 +234,7 @@ export default function TantraRemoval() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="text-center mb-13">
             <p className="section-label">Nikhil Ji&apos;s Approach</p>
@@ -266,7 +266,7 @@ export default function TantraRemoval() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-13">
             <p className="section-label">The Process</p>
@@ -322,7 +322,7 @@ export default function TantraRemoval() {
         </div>
       </section>
 
-      <section className="py-20 px-6 text-center bg-gradient-to-br from-[#080508] to-[#130f10]">
+      <section className="py-10 md:py-16 px-6 text-center bg-gradient-to-br from-[#080508] to-[#130f10]">
         <div className="max-w-[560px] mx-auto">
           <div className="mb-5 flex justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[14px]" />)}

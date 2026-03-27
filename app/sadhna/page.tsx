@@ -270,7 +270,7 @@ export default function Sadhna() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 px-6 bg-gradient-to-b from-[#0e0c08] to-[#1a1408]">
+      <section className="relative overflow-hidden py-10 md:py-16 px-6 bg-gradient-to-b from-[#0e0c08] to-[#1a1408]">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,rgba(184,134,11,0.04)_1px,transparent_1px)] bg-[length:24px_24px]" />
         <div className="relative max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
@@ -327,7 +327,7 @@ export default function Sadhna() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <p className="section-label">Complete Package</p>
@@ -359,7 +359,7 @@ export default function Sadhna() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
         <div className="max-w-[560px] mx-auto">
           <div className="mb-5 flex justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => (
