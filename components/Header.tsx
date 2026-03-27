@@ -71,7 +71,7 @@ export default function Header() {
             <div className="relative w-[100px] h-[100px] rounded-full overflow-hidden border border-[#e8d080] bg-white shrink-0 shadow-[0_2px_8px_rgba(184,134,11,0.15)]">
               <Image src="/logo.png" alt="NIK ASTRO logo" fill className="object-cover" priority />
             </div>
-           
+
           </Link>
 
           <nav className="hidden min-[1100px]:flex items-center gap-1 flex-1 justify-center">
@@ -112,7 +112,7 @@ export default function Header() {
         <div
           className={cn(
             'min-[1100px]:hidden overflow-hidden transition-all duration-300 bg-[#fffdf7]',
-            isOpen ? 'max-h-[520px] border-t border-[#f0e8c8]' : 'max-h-0'
+            isOpen ? 'max-h-[650px] border-t border-[#f0e8c8]' : 'max-h-0'
           )}
         >
           <div className="px-5 pt-4 pb-5 flex flex-col gap-1">
@@ -144,7 +144,7 @@ export default function Header() {
               href="https://wa.me/918377844158"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2.5 bg-linear-to-br from-[#b8860b] to-[#d4a017] text-white px-5 py-3 rounded-[12px] font-['DM_Sans'] text-[15px] font-semibold shadow-[0_3px_14px_rgba(184,134,11,0.3)]"
+              className="mt-2 inline-flex items-center justify-center gap-2.5 bg-green-500 text-white px-5 py-3 rounded-[12px] font-['DM_Sans'] text-[15px] font-semibold shadow-[0_3px_14px_rgba(184,134,11,0.3)]"
             >
               <FaWhatsapp className="text-[18px]" />
               Book Consultation on WhatsApp
