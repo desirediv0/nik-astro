@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import {
   FaPhone,
   FaVideo,
@@ -25,6 +26,7 @@ const services = [
     description:
       "A focused 30-minute session where you speak directly with Nikhil Ji about your concerns and receive personalized astrological guidance with remedies tailored to your birth chart.",
     benefits: ['Direct conversation with Nikhil Ji', 'Personalized astrological advice', 'Chart-specific remedies'],
+    image: '/telephonic.png',
   },
   {
     icon: FaVideo,
@@ -33,6 +35,7 @@ const services = [
     description:
       "Upgrade to video for a richer face-to-face experience. Nikhil Ji walks you through your birth chart in detail, offering deeper insights into your life path and planetary influences.",
     benefits: ['Face-to-face interaction', 'Detailed chart walkthrough', 'In-depth visual analysis'],
+    image: '/video.png',
   },
   {
     icon: FaHeart,
@@ -41,6 +44,7 @@ const services = [
     description:
       "True compatibility requires more than Guna Milan. Nikhil Ji evaluates 10+ parameters to provide couples with a comprehensive, honest compatibility assessment before marriage.",
     benefits: ['10+ compatibility parameters', 'Life predictions for the couple', 'Dosha identification & remedies'],
+    image: '/kundali-milan.png',
   },
   {
     icon: FaClock,
@@ -49,6 +53,7 @@ const services = [
     description:
       "Auspicious timing for significant life events — Griha Pravesh, marriage, property purchase. Each Muhurat is uniquely matched to your Kundali, not a generic calendar.",
     benefits: ['Personalized to your birth chart', 'Covers all major life events', 'Ensures positive energy alignment'],
+    image: '/muhurat.png',
   },
 ]
 
@@ -159,9 +164,8 @@ export default function Consultation() {
               const Icon = s.icon
               return (
                 <div key={s.title} className="bg-white rounded-[18px] overflow-hidden border border-cream-border hover:shadow-gold hover:-translate-y-1.5 transition-all duration-300">
-                  <div className="relative aspect-video w-full border-b border-cream-border bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] flex items-center justify-center">
-                    <Icon className="text-gold/35 text-[26px]" />
-                    <span className="absolute bottom-3.5 font-sans text-[11px] tracking-[2px] uppercase text-[#c9a84c]">Add Image Here</span>
+                  <div className="relative aspect-video w-full border-b border-cream-border overflow-hidden">
+                    <Image src={s.image} alt={s.title} fill className="object-cover" />
                   </div>
 
                   <div className="p-7">
@@ -207,9 +211,8 @@ export default function Consultation() {
               </p>
 
               <div className="rounded-[18px] overflow-hidden border border-cream-border">
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-[#f7f2e8] to-[#ede6d6] flex items-center justify-center">
-                  <FaHome className="text-gold/30 text-[30px]" />
-                  <span className="absolute bottom-4 font-sans text-[11px] tracking-[2px] uppercase text-[#c9a84c]">Astro Vastu Image</span>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image src="/astro-vastu.png" alt="Astro Vastu Consultation" fill className="object-cover" />
                 </div>
               </div>
             </div>
