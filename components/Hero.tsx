@@ -77,7 +77,7 @@ export default function Hero() {
             <div className="absolute -inset-4 rounded-[24px] bg-[radial-gradient(ellipse_at_center,rgba(184,134,11,0.12)_0%,transparent_70%)] pointer-events-none" />
 
             <Image src="/nikhil-ji.png" alt="Nikhil Ji" width={500} height={500} />
-
+            {/* 
             <div className="absolute -bottom-4 -left-5 bg-cream rounded-[14px] px-[18px] py-[14px] border border-cream-border shadow-[0_8px_28px_rgba(0,0,0,0.12)]">
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
@@ -88,7 +88,7 @@ export default function Hero() {
                 <span className="font-sans text-[12.5px] font-semibold text-ink">4.9 Rating</span>
               </div>
               <p className="font-sans text-[11px] text-muted-gold mt-1">5000+ Consultations</p>
-            </div>
+            </div> */}
 
             <div className="absolute top-4 -right-3 bg-gradient-to-br from-gold to-[#d4a017] rounded-xl px-3.5 py-2.5 shadow-[0_4px_18px_rgba(184,134,11,0.4)]">
               <p className="font-sans text-[11px] font-bold text-white uppercase tracking-[0.5px]">
