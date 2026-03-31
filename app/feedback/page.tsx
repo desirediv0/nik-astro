@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import {
-  FaWhatsapp, FaStar, FaFacebook, FaQuoteLeft,
-  FaPlay, FaMapMarkerAlt, FaCheckCircle
+  FaWhatsapp, FaStar, FaFacebook, FaEnvelope
 } from 'react-icons/fa'
 import { MdVerified } from 'react-icons/md'
 import { GiStarShuriken } from 'react-icons/gi'
@@ -20,64 +20,43 @@ const stats = [
   { value: 'Global', label: 'Clients Worldwide' },
 ]
 
-// Video review placeholders — replace src with actual YouTube embed URLs
 const videoReviews = [
-  { id: 1, label: 'Client Video Review 1' },
-  { id: 2, label: 'Client Video Review 2' },
-  { id: 3, label: 'Client Video Review 3' },
-  { id: 4, label: 'Client Video Review 4' },
-  { id: 5, label: 'Client Video Review 5' },
-  { id: 6, label: 'Client Video Review 6' },
+  { id: 1, src: 'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/video1.mp4' },
+  { id: 2, src: 'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/video2.mp4' },
+  { id: 3, src: 'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/video3.mp4' },
+  { id: 4, src: 'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/video4.mp4' },
+  { id: 5, src: 'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/video5.mp4' },
 ]
 
-const facebookReviews = [
-  {
-    name: 'Nidhi Shreshtha',
-    location: 'Bangalore, India',
-    date: '1 March',
-    text: 'I consult Nikhil Ji on regular basis — he is a very good astrologer who always gives good advice and proper time. I was having a problem in my personal life and he arranged a special puja for me and sent me an energized Rudraksha. It really helped me. Thanks Nik-Astro!',
-  },
-  {
-    name: 'Ankita Rajput',
-    location: 'Delhi, India',
-    date: '27 February',
-    text: 'I was facing a lot of health issues. I consulted Nikhil Ji — he did a puja for me and also made a Kavach. I feel so relieved now and my health has improved a lot. If you are facing any problem in life, just consult Nik-Astro / Nikhil Ji.',
-  },
-  {
-    name: 'Saumya',
-    location: 'Pune, India',
-    date: 'Recent',
-    text: 'Thanks for your patience with me and for giving me real good remedies. You are a real astrologer. Thanks a lot Sir. I need consultancy for my son\'s health too. Again thanks Sir — God bless you.',
-  },
-  {
-    name: 'Varun',
-    location: 'Faridabad, India',
-    date: 'Recent',
-    text: 'Though I waited 4 days for my report, after getting it — it was absolutely worth the wait. The remedies you gave, I will follow them. Again, thanks for your guidance. Really thankful from the core of my heart.',
-  },
+const whatsappImages = [
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/9.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/25.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/22.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/21.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/20.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/8.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/15.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/14.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/12.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/13.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/11.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/10.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/6.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/7.jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/9%20(1).jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/Presentation1.jpg'
 ]
 
-const whatsappReviews = [
-  {
-    name: 'Verified Client',
-    topic: 'Health & Career',
-    text: 'I got the puja and anushthan done by Nikhil Ji in May 2024, as I was facing lots of health issues and stability in job as well. Nikhil Ji suggested some Yantras and Kavach for me. Now after few months of puja, I can say life is coming back on track, health is much better now, everything going good at the job front. Please say my special thanks to Nikhil Ji for helping me out of the tough situation, thank you again.',
-  },
-  {
-    name: 'Santosh Ch.',
-    topic: 'Accuracy of Predictions',
-    text: 'Your all predictions are correct. I wish my friend had given ur contact earlier. Sir can I call u — I have to ask about something. I have received both. Thanks Sir.',
-  },
-  {
-    name: 'Team Message',
-    topic: 'Predictions & Guidance',
-    text: 'HI TEAM, Please pass my message to Nikhil Ji and please say my special thanks to him. All his predictions for upcoming time were absolutely spot on. He said by September I will get a new job and at a better position.',
-  },
-  {
-    name: 'Verified Client',
-    topic: 'Life Guidance',
-    text: 'It was in my mind for past many days. You told that very specifically. Thanks for your patience with me and thanks for real good guidance. You are a real astrologer — thanks a lot Sir.',
-  },
+const facebookImages = [
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/1.1.png',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/2.2.png',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/3.3.png',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/4.1.png'
+]
+
+const mailImages = [
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/8%20(1).jpg',
+  'https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/nik-astro/8.1.png'
 ]
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -85,6 +64,7 @@ const whatsappReviews = [
 export default function Feedback() {
   return (
     <main className="bg-white text-ink">
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#080608] via-[#12100a] to-[#1a1508] py-[68px] px-6">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_55%_60%_at_75%_40%,rgba(184,134,11,0.11)_0%,transparent_70%)]" />
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,rgba(184,134,11,0.04)_1px,transparent_1px)] bg-[length:24px_24px]" />
@@ -99,7 +79,7 @@ export default function Feedback() {
             & Reviews
           </h1>
           <p className="mb-8 max-w-[520px] font-sans text-[16px] leading-[1.8] text-[#a89060]">
-            Real words from real people — video reviews, WhatsApp messages, and Facebook testimonials from clients who have experienced transformation through Nikhil Ji&apos;s guidance.
+            Real words from real people — video reviews, WhatsApp screenshots, Facebook testimonials, and emails from clients who have experienced transformation through Nikhil Ji&apos;s guidance.
           </p>
           <div className="flex gap-1.5">
             {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[18px]" />)}
@@ -108,6 +88,7 @@ export default function Feedback() {
         </div>
       </section>
 
+      {/* Stats Section */}
       <section className="bg-[#fffdf5] border-b border-[#f0e8c8] py-8 px-6">
         <div className="max-w-[1100px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map(({ value, label }) => (
@@ -119,6 +100,7 @@ export default function Feedback() {
         </div>
       </section>
 
+      {/* Video Reviews Section */}
       <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
@@ -126,129 +108,130 @@ export default function Feedback() {
             <h2 className="text-[34px] md:text-[40px]">Video Reviews</h2>
             <div className="section-divider mb-5" />
             <p className="mx-auto max-w-[500px] font-sans text-[15px] leading-[1.75] text-body-text">
-              Hear directly from clients — in their own words — about their experience with Nikhil Ji&apos;s consultations and remedies.
+              Hear directly from clients about their experience with Nikhil Ji&apos;s consultations and remedies.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[1100px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-[1100px] mx-auto">
             {videoReviews.map((v) => (
               <div key={v.id} className="group bg-white rounded-[16px] overflow-hidden border border-cream-border hover:shadow-gold hover:-translate-y-1 transition-all duration-300">
-                <div className="aspect-video w-full relative overflow-hidden bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f]">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(184,134,11,0.07)_0%,transparent_70%)]" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <div className="w-[52px] h-[52px] rounded-full bg-[rgba(184,134,11,0.2)] border border-[rgba(184,134,11,0.5)] flex items-center justify-center transition-all duration-300 group-hover:bg-[rgba(184,134,11,0.35)] group-hover:border-gold">
-                      <FaPlay className="text-[#c9a84c] text-[16px] ml-0.5" />
-                    </div>
-                    <span className="font-sans text-[11px] text-[#5a4e35] tracking-[1.5px] uppercase">Add Video Here</span>
-                  </div>
+                <div className="relative overflow-hidden bg-black flex items-center justify-center aspect-[9/16] max-h-[60vh] sm:max-h-[500px]">
+                  <video
+                    src={v.src}
+                    controls
+                    preload="metadata"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <div className="p-3.5 px-4 pb-4">
-                  <div className="mb-1.5 flex gap-1">
-                    {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[11px]" />)}
+                <div className="p-4 bg-white border-t border-cream-border flex items-center justify-between">
+                  <div className="flex gap-1.5">
+                    {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[12px]" />)}
                   </div>
-                  <p className="flex items-center gap-1.5 font-sans text-[13px] text-body-text">
-                    <MdVerified className="text-gold text-[13px]" />
-                    {v.label}
-                  </p>
+
                 </div>
               </div>
             ))}
           </div>
-
-          <p className="mt-6 font-sans text-center text-[#a89060] text-[13px]">
-            Replace placeholders with {'<iframe>'} YouTube embed tags when video URLs are ready.
-          </p>
         </div>
       </section>
 
+      {/* WhatsApp Feedback Section */}
       <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
-            <p className="section-label">Direct Messages</p>
+            <div className="inline-flex items-center gap-2 bg-[#dcf8c6] border border-[#25d366]/30 text-[#075e54] rounded-full px-4 py-1.5 mb-4">
+              <FaWhatsapp className="text-[#25d366] text-[16px]" />
+              <span className="font-sans text-[12px] font-medium tracking-[0.5px]">Direct WhatsApp Messages</span>
+            </div>
             <h2 className="text-[34px] md:text-[40px]">WhatsApp Feedback</h2>
             <div className="section-divider mb-5" />
             <p className="mx-auto max-w-[500px] font-sans text-[15px] leading-[1.75] text-body-text">
-              Unfiltered messages from clients, shared directly on WhatsApp after experiencing results from consultations and remedies.
+              Unfiltered screenshots shared directly by clients after experiencing positive results from consultations.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[1100px] mx-auto">
-            {whatsappReviews.map((w, i) => (
-              <div key={`${w.name}-${i}`} className="bg-[#fffdf7] rounded-[16px] overflow-hidden border border-cream-border border-l-[3px] border-l-[#25d366] hover:shadow-gold hover:-translate-y-0.5 transition-all duration-300">
-                <div className="bg-[#075e54] px-[18px] py-3.5 flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-full bg-[rgba(255,255,255,0.15)] flex items-center justify-center shrink-0">
-                    <FaWhatsapp className="text-white text-[17px]" />
-                  </div>
-                  <div>
-                    <p className="font-sans text-[13.5px] font-semibold text-white leading-tight">{w.name}</p>
-                    <p className="font-sans text-[11px] text-[rgba(255,255,255,0.55)] mt-0.5">{w.topic}</p>
-                  </div>
-                  <MdVerified className="text-[#4dcc7a] text-[16px] ml-auto" />
-                </div>
-                <div className="p-5 pb-[22px]">
-                  <div className="bg-[#f0f0f0] rounded-[0_12px_12px_12px] p-3 px-3.5">
-                    <FaQuoteLeft className="text-gold text-[11px] opacity-60 mb-1.5 block" />
-                    <p className="font-sans text-[14px] text-[#2a2a2a] leading-[1.65]">{w.text}</p>
-                  </div>
-                  <div className="flex justify-end gap-1 mt-2.5">
-                    {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[11px]" />)}
-                  </div>
-                </div>
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-5 max-w-[1100px] mx-auto">
+            {whatsappImages.map((src, i) => (
+              <div key={i} suppressHydrationWarning className="break-inside-avoid bg-white p-2.5 rounded-[12px] border border-cream-border shadow-sm hover:shadow-gold hover:-translate-y-1 transition-all duration-300 mb-5 relative">
+                <Image
+                  src={src}
+                  alt={`WhatsApp Feedback ${i + 1}`}
+                  width={400}
+                  height={800}
+                  className="w-full h-auto rounded-[8px] object-cover"
+                  unoptimized={true}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Facebook Reviews Section */}
       <section className="py-10 md:py-16 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="mb-13 text-center">
             <div className="inline-flex items-center gap-2 bg-[#f0f2ff] border border-[#dbe0ff] rounded-full px-4 py-1.5 mb-4">
-              <FaFacebook className="text-[#1877f2] text-[14px]" />
-              <span className="font-sans text-[#1877f2] text-[12px] font-medium tracking-[0.5px]">Nik Astro · Puja Anushthan Kendra</span>
+              <FaFacebook className="text-[#1877f2] text-[15px]" />
+              <span className="font-sans text-[#1877f2] text-[12px] font-medium tracking-[0.5px]">Nik Astro Facebook Page</span>
             </div>
-            <p className="section-label">Facebook Reviews</p>
-            <h2 className="text-[34px] md:text-[40px]">What Clients Say</h2>
+            <h2 className="text-[34px] md:text-[40px]">Facebook Reviews</h2>
             <div className="section-divider mb-5" />
             <p className="mx-auto max-w-[500px] font-sans text-[15px] leading-[1.75] text-body-text">
-              Genuine reviews posted publicly by clients on the NIK ASTRO Facebook page.
+              Genuine reviews posted publicly by clients on our social media platforms.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[1100px] mx-auto">
-            {facebookReviews.map((r, i) => (
-              <div key={`${r.name}-${i}`} className="bg-white rounded-[16px] border border-[#e8e8e8] p-7 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-[42px] h-[42px] rounded-full shrink-0 bg-gradient-to-br from-[#e8d5b0] to-[#f5e8cc] border border-[#e0d0a0] flex items-center justify-center">
-                    <span className="font-serif text-[18px] font-semibold text-subtle-gold">{r.name[0]}</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-1.5">
-                      <p className="font-sans text-[14px] font-semibold text-ink">{r.name}</p>
-                      <FaCheckCircle className="text-[#1877f2] text-[12px]" />
-                    </div>
-                    <div className="flex items-center gap-1.5 mt-0.5">
-                      <FaFacebook className="text-[#1877f2] text-[10px]" />
-                      <span className="font-sans text-[11px] text-[#8a8a8a]">Nik astro, puja anushthan kendra · {r.date}</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-1 ml-auto">
-                    {[1, 2, 3, 4, 5].map((n) => <FaStar key={n} className="text-gold text-[12px]" />)}
-                  </div>
-                </div>
-                <p className="font-sans text-[14.5px] text-[#3a3020] leading-[1.72] italic mb-4">&quot;{r.text}&quot;</p>
-                <div className="flex items-center justify-between pt-3.5 border-t border-cream-border">
-                  <div className="flex items-center gap-1.5">
-                    <FaMapMarkerAlt className="text-gold text-[11px]" />
-                    <span className="font-sans text-[12.5px] text-[#a89060]">{r.location}</span>
-                  </div>
-                  <span className="pill">Verified Client</span>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            {facebookImages.map((src, i) => (
+              <div key={i} suppressHydrationWarning className="bg-white p-3 rounded-[16px] border border-[#e8e8e8] shadow-sm hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center relative">
+                <Image
+                  src={src}
+                  alt={`Facebook Review ${i + 1}`}
+                  width={500}
+                  height={400}
+                  className="w-full h-auto rounded-[8px] object-contain max-h-[400px]"
+                  unoptimized={true}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Email Feedback Section */}
+      <section className="py-10 md:py-16 px-6 bg-gradient-to-b from-[#fdfaf3] to-white border-t border-[#f0e8c8]">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="mb-13 text-center">
+            <div className="inline-flex items-center gap-2 bg-[#fff4e6] border border-[#ffd599] rounded-full px-4 py-1.5 mb-4">
+              <FaEnvelope className="text-[#ff9800] text-[14px]" />
+              <span className="font-sans text-[#e65100] text-[12px] font-medium tracking-[0.5px]">Verified Emails</span>
+            </div>
+            <h2 className="text-[34px] md:text-[40px]">Email Testimonials</h2>
+            <div className="section-divider mb-5" />
+            <p className="mx-auto max-w-[500px] font-sans text-[15px] leading-[1.75] text-body-text">
+              Detailed heartfelt emails from clients who found light in their toughest times.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[900px] mx-auto">
+            {mailImages.map((src, i) => (
+              <div key={i} suppressHydrationWarning className="bg-white p-3 rounded-[16px] border border-cream-border shadow-sm hover:shadow-gold hover:-translate-y-1 transition-all duration-300 flex items-center justify-center relative">
+                <Image
+                  src={src}
+                  alt={`Email Feedback ${i + 1}`}
+                  width={500}
+                  height={800}
+                  className="w-full h-auto rounded-[8px] object-contain max-h-[800px]"
+                  unoptimized={true}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="pb-20 px-6 bg-white">
         <div className="max-w-[1100px] mx-auto">
           <div className="bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] rounded-[24px] flex flex-wrap items-center justify-between gap-7 p-12 px-10">
@@ -261,7 +244,7 @@ export default function Feedback() {
                 Every review is <span className="italic text-[#c9a84c]">genuine</span>
               </h3>
               <p className="font-sans text-[#a89060] text-[14.5px] leading-[1.75] max-w-[520px]">
-                All feedback shown here is from real clients — unedited WhatsApp messages, public Facebook posts, and recorded video testimonials. Nikhil Ji&apos;s work speaks for itself.
+                All feedback shown here is from real clients — unedited WhatsApp screenshots, public Facebook posts, and recorded video testimonials. Nikhil Ji&apos;s work speaks for itself.
               </p>
             </div>
             <a href="https://wa.me/918377844158" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
@@ -272,6 +255,7 @@ export default function Feedback() {
         </div>
       </section>
 
+      {/* Footer CTA */}
       <section className="py-10 md:py-16 px-6 bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] text-center">
         <div className="max-w-[560px] mx-auto">
           <div className="mb-5 flex justify-center gap-1.5">

@@ -5,6 +5,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'desirediv-storage.blr1.cdn.digitaloceanspaces.com',
+      },
+    ],
   },
 }
 
