@@ -14,7 +14,7 @@ export const metadata = {
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { value: '5000+', label: 'Consultations Done' },
+  { value: '50000+', label: 'Consultations Done' },
   { value: '20+', label: 'Years of Practice' },
   { value: '4.9★', label: 'Average Rating' },
   { value: 'Global', label: 'Clients Worldwide' },

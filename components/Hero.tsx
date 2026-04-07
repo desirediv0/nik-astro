@@ -87,7 +87,7 @@ export default function Hero() {
                 </div>
                 <span className="font-sans text-[12.5px] font-semibold text-ink">4.9 Rating</span>
               </div>
-              <p className="font-sans text-[11px] text-muted-gold mt-1">5000+ Consultations</p>
+              <p className="font-sans text-[11px] text-muted-gold mt-1">50000+ Consultations</p>
             </div> */}
 
             <div className="absolute top-4 -right-3 bg-gradient-to-br from-gold to-[#d4a017] rounded-xl px-3.5 py-2.5 shadow-[0_4px_18px_rgba(184,134,11,0.4)]">

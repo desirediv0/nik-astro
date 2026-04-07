@@ -5,8 +5,8 @@ import { MdVerified } from 'react-icons/md'
 
 const credentials = [
   { value: '20+', label: 'Years of Practice' },
-  { value: '5000+', label: 'Consultations' },
-  { value: '1M+', label: 'YouTube Views' },
+  { value: '50000+', label: 'Consultations' },
+  { value: '100M+', label: 'YouTube Views' },
   { value: 'Global', label: 'Client Reach' },
 ]
 

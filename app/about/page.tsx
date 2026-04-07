@@ -317,7 +317,7 @@ export default function About() {
             </div>
           </div>
           <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden">
-            <Image src="/Services.png" alt="Services" width={800} height={500} />
+            <Image src="/nikhil-ji.png" alt="Services" width={800} height={500} />
           </div>
         </div>
       </section>
