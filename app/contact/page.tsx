@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, type ChangeEvent, type FormEvent } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import {
   FaPhone, FaMapMarkerAlt, FaWhatsapp,
-  FaFacebook, FaInstagram, FaCheckCircle, FaChevronRight
+  FaFacebook, FaInstagram, FaCheckCircle, FaChevronRight, FaEnvelope,
 } from 'react-icons/fa'
 import { MdVerified } from 'react-icons/md'
 import { GiStarShuriken } from 'react-icons/gi'
@@ -22,6 +22,7 @@ const services = [
 
 type ContactForm = {
   name: string
+  email: string
   phone: string
   service: string
   message: string
@@ -32,6 +33,7 @@ type ContactFormErrors = Partial<Record<keyof ContactForm, string>>
 export default function Contact() {
   const [form, setForm] = useState<ContactForm>({
     name: '',
+    email: '',
     phone: '',
     service: '',
     message: '',
@@ -39,11 +41,15 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<ContactFormErrors>({})
+  const [apiError, setApiError] = useState('')
 
   const validate = (): ContactFormErrors => {
     const e: ContactFormErrors = {}
     if (!form.name.trim()) e.name = 'Please enter your name'
-    if (!form.phone.trim() || !/^\+?[0-9\s\-]{8,15}$/.test(form.phone.trim())) e.phone = 'Please enter a valid phone number'
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
+      e.email = 'Please enter a valid email address'
+    if (!form.phone.trim() || !/^\+?[0-9\s\-]{8,15}$/.test(form.phone.trim()))
+      e.phone = 'Please enter a valid phone number'
     if (!form.service) e.service = 'Please select a service'
     if (!form.message.trim()) e.message = 'Please write a brief message'
     return e
@@ -54,25 +60,37 @@ export default function Contact() {
     const field = name as keyof ContactForm
     setForm(prev => ({ ...prev, [name]: value }))
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
+    if (apiError) setApiError('')
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
 
     setLoading(true)
-    setTimeout(() => {
-      console.log('NIK ASTRO — New Contact Enquiry:', {
-        name: form.name,
-        phone: form.phone,
-        service: form.service,
-        message: form.message,
-        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    setApiError('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       })
-      setLoading(false)
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setApiError(data.error || 'Something went wrong. Please try again.')
+        return
+      }
+
       setSubmitted(true)
-    }, 800)
+    } catch {
+      setApiError('Network error. Please check your connection and try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -116,11 +134,14 @@ export default function Contact() {
                     <FaCheckCircle className="text-white text-[28px]" />
                   </div>
                   <h3 className="font-serif text-[26px] font-semibold text-ink mb-3">Message Received!</h3>
-                  <p className="font-sans text-[#4a6b50] text-[15px] leading-[1.75] max-w-[360px] mx-auto mb-7">
-                    Thank you, <strong>{form.name}</strong>. Your enquiry has been noted. Nikhil Ji will get back to you on <strong>{form.phone}</strong> soon.
+                  <p className="font-sans text-[#4a6b50] text-[15px] leading-[1.75] max-w-[380px] mx-auto mb-3">
+                    Thank you, <strong>{form.name}</strong>. Your enquiry for <strong>{form.service}</strong> has been noted.
                   </p>
-                  <p className="font-sans text-[#6b8f6b] text-[14px] mb-7">
-                    For faster response, you can also message directly on WhatsApp.
+                  <p className="font-sans text-[#4a6b50] text-[14px] leading-[1.75] max-w-[380px] mx-auto mb-2">
+                    Nikhil Ji will get back to you on <strong>{form.phone}</strong> soon.
+                  </p>
+                  <p className="font-sans text-[#6b8f6b] text-[13px] mb-7">
+                    A confirmation email has been sent to <strong>{form.email}</strong>.
                   </p>
                   <a href="https://wa.me/918377844158" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#25d366] to-[#1ab854] text-white text-[14px] px-6 py-2.5 rounded-full font-sans font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
                     <FaWhatsapp className="text-[17px]" />
@@ -130,10 +151,11 @@ export default function Contact() {
               ) : (
                 /* ── FORM STATE ── */
                 <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+
                   {/* Name + Phone */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="field-label">Full Name</label>
+                      <label htmlFor="name" className="field-label">Full Name <span className="text-red-500">*</span></label>
                       <input
                         id="name" name="name" type="text"
                         placeholder="Your name"
@@ -143,7 +165,7 @@ export default function Contact() {
                       {errors.name && <p className="error-text">{errors.name}</p>}
                     </div>
                     <div>
-                      <label htmlFor="phone" className="field-label">Phone / WhatsApp</label>
+                      <label htmlFor="phone" className="field-label">Phone / WhatsApp <span className="text-red-500">*</span></label>
                       <input
                         id="phone" name="phone" type="tel"
                         placeholder="+91 XXXXX XXXXX"
@@ -154,14 +176,29 @@ export default function Contact() {
                     </div>
                   </div>
 
+                  {/* Email */}
+                  <div>
+                    <label htmlFor="email" className="field-label">Email Address <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <FaEnvelope className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#c9a84c] text-[14px] pointer-events-none" />
+                      <input
+                        id="email" name="email" type="email"
+                        placeholder="you@example.com"
+                        value={form.email} onChange={handleChange}
+                        className={`input-field pl-10 ${errors.email ? 'error' : ''}`}
+                        suppressHydrationWarning
+                      />
+                    </div>
+                    {errors.email && <p className="error-text">{errors.email}</p>}
+                  </div>
+
                   {/* Service */}
                   <div>
-                    <label htmlFor="service" className="field-label">Service Interested In</label>
+                    <label htmlFor="service" className="field-label">Service Interested In <span className="text-red-500">*</span></label>
                     <select
                       id="service" name="service"
                       value={form.service} onChange={handleChange}
                       className={`input-field cursor-pointer appearance-none bg-no-repeat bg-[right_14px_center] pr-9 ${errors.service ? 'error' : ''}`}
-                      // allowed: data-uri arrow for select dropdown
                       style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8860b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")` }}
                     >
                       <option value="">Select a service...</option>
@@ -172,7 +209,7 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="field-label">Your Message / Query</label>
+                    <label htmlFor="message" className="field-label">Your Message / Query <span className="text-red-500">*</span></label>
                     <textarea
                       id="message" name="message"
                       placeholder="Briefly describe your concern or query..."
@@ -183,11 +220,18 @@ export default function Contact() {
                     {errors.message && <p className="error-text">{errors.message}</p>}
                   </div>
 
+                  {/* API Error */}
+                  {apiError && (
+                    <div className="bg-red-50 border border-red-200 rounded-[10px] px-4 py-3">
+                      <p className="font-sans text-[13.5px] text-red-600">{apiError}</p>
+                    </div>
+                  )}
+
                   {/* Note */}
                   <div className="flex items-start gap-2.5 bg-[#fffdf7] border border-[#f0e8c8] rounded-[10px] p-3 px-4">
                     <MdVerified className="text-gold text-[15px] mt-0.5 shrink-0" />
                     <p className="font-sans text-[12.5px] text-subtle-gold leading-[1.6]">
-                      Your details are private and will only be used by Nikhil Ji for consultation purposes. For fastest response, also message on WhatsApp.
+                      Your details are private and will only be used by Nikhil Ji for consultation purposes. A confirmation will be sent to your email. For fastest response, also message on WhatsApp.
                     </p>
                   </div>
 
@@ -196,7 +240,7 @@ export default function Contact() {
                     disabled={loading}
                     className="w-full bg-gradient-to-br from-gold to-[#d4a017] text-white border-none rounded-full py-3.5 font-sans text-[15px] font-semibold cursor-pointer shadow-[0_4px_18px_rgba(184,134,11,0.3)] hover:shadow-[0_6px_26px_rgba(184,134,11,0.42)] hover:-translate-y-px disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300"
                   >
-                    {loading ? 'Sending...' : 'Send Enquiry'}
+                    {loading ? 'Sending Enquiry...' : 'Send Enquiry'}
                   </button>
                 </form>
               )}
@@ -298,7 +342,6 @@ export default function Contact() {
 
       <section className="pb-20 px-6 bg-white max-w-[1100px] mx-auto">
         <div className="rounded-[20px] overflow-hidden border border-cream-border shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-          {/* Replace with Google Maps <iframe> */}
           <div className="relative bg-gradient-to-br from-[#0e0c08] to-[#1e1a0f] h-[340px] flex flex-col items-center justify-center gap-3.5">
             <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,rgba(184,134,11,0.08)_0%,transparent_70%)]" />
             <div className="icon-box w-[52px] h-[52px]">
