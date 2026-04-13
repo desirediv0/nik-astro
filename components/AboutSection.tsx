@@ -94,7 +94,7 @@ export default function AboutSection() {
                   YouTube Silver Play Button
                 </p>
                 <p className="font-sans text-[13px] text-muted-gold leading-[1.5]">
-                  1M+ views · Globally followed for astrology guidance
+                  100M+ views · Globally followed for astrology guidance
                 </p>
               </div>
               <MdVerified className="text-gold text-[18px] ml-auto shrink-0" />

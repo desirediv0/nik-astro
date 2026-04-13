@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,61 +6,93 @@
 
 /* ── Keyframe Animations ── */
 @keyframes waBounce {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%       { transform: translateY(-5px) scale(1.04); }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.04);
+  }
 }
 @keyframes waPing {
-  0%   { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(2.2); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }
 @keyframes waFadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Base ── */
 @layer base {
-  html { scroll-behavior: smooth; }
-
   body {
     @apply antialiased bg-white text-ink;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: "DM Sans", system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Cormorant Garamond", Georgia, serif;
     @apply font-semibold leading-tight text-ink;
   }
 
-  h1 { @apply text-5xl; }
-  h2 { @apply text-4xl; }
-  h3 { @apply text-2xl; }
-  h4 { @apply text-xl; }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
 
   p {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: "DM Sans", system-ui, sans-serif;
     @apply text-[15.5px] leading-[1.78] text-body-text;
   }
 
-  a { @apply no-underline; }
-  img, video { @apply max-w-full block; }
+  a {
+    @apply no-underline;
+  }
+  img,
+  video {
+    @apply max-w-full block;
+  }
 }
 
 /* ── Reusable Components ── */
 @layer components {
-
   .section-label {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply block text-[11px] font-medium text-gold tracking-[3px] uppercase mb-3;
   }
 
   .section-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: "Cormorant Garamond", Georgia, serif;
     @apply text-[40px] font-semibold text-ink leading-tight text-center mb-3;
   }
 
   .section-desc {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply text-[16px] leading-[1.8] text-body-text max-w-[580px] mx-auto;
   }
 
@@ -73,7 +105,7 @@
   }
 
   .pill {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply inline-block bg-gradient-to-br from-gold-pale to-[#f7e6b2] text-subtle-gold
            text-[10px] font-medium px-3 py-1 rounded-full uppercase tracking-[1px]
            border border-gold-border;
@@ -101,7 +133,7 @@
   }
 
   .btn-primary {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply inline-flex items-center gap-2 bg-gradient-to-br from-gold to-[#d4a017]
            text-white px-7 py-3 rounded-full text-[14.5px] font-semibold
            shadow-[0_3px_16px_rgba(184,134,11,0.3)] border-none cursor-pointer
@@ -110,7 +142,7 @@
   }
 
   .btn-secondary {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply inline-flex items-center gap-2 bg-transparent
            border border-[rgba(184,134,11,0.4)] text-gold
            px-6 py-3 rounded-full text-sm font-medium cursor-pointer
@@ -119,7 +151,7 @@
   }
 
   .btn-whatsapp {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply inline-flex items-center gap-2.5
            bg-gradient-to-br from-[#25d366] to-[#1ab854]
            text-white px-8 py-3.5 rounded-full text-[15px] font-semibold
@@ -129,7 +161,7 @@
   }
 
   .btn-wa-subtle {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply inline-flex items-center gap-2
            bg-[rgba(184,134,11,0.08)] border border-[rgba(184,134,11,0.2)]
            text-gold px-4 py-2 rounded-full text-[12.5px] font-medium
@@ -138,7 +170,7 @@
   }
 
   .input-field {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply w-full bg-white border-[1.5px] border-[#e8d9b8] rounded-[10px]
            px-4 py-3 text-[14.5px] text-ink outline-none
            focus:border-gold focus:ring-2 focus:ring-[rgba(184,134,11,0.1)]
@@ -150,18 +182,24 @@
   }
 
   .field-label {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply block text-[11.5px] font-semibold text-subtle-gold
            tracking-[1px] uppercase mb-1.5;
   }
 
   .error-text {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     @apply text-[12px] text-nik-red mt-1;
   }
 
   /* WhatsApp float button animations */
-  .animate-wa-bounce { animation: waBounce 3.2s ease-in-out infinite; }
-  .animate-wa-ping   { animation: waPing 2.2s ease-out infinite; }
-  .animate-wa-fadeup { animation: waFadeUp 0.35s ease; }
+  .animate-wa-bounce {
+    animation: waBounce 3.2s ease-in-out infinite;
+  }
+  .animate-wa-ping {
+    animation: waPing 2.2s ease-out infinite;
+  }
+  .animate-wa-fadeup {
+    animation: waFadeUp 0.35s ease;
+  }
 }

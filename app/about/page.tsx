@@ -128,7 +128,7 @@ export default function About() {
               </div>
             </div>
             <div className="rounded-[20px] border border-[rgba(184,134,11,0.25)] bg-[#111] overflow-hidden">
-              <Image src="/nikhil-ji.png" alt="Nikhil Ji" width={800} height={500} />
+              <Image src="/nikhil-ji.png" alt="Nikhil Ji" width={800} height={500} loading='eager' />
             </div>
           </div>
         </div>
@@ -317,7 +317,7 @@ export default function About() {
             </div>
           </div>
           <div className="rounded-[18px] border border-[#f0ebe0] overflow-hidden">
-            <Image src="/nikhil-ji.png" alt="Services" width={800} height={500} />
+            <Image src="/nikhil-ji.png" alt="Services" width={800} height={500} loading='eager' />
           </div>
         </div>
       </section>

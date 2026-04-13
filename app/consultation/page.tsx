@@ -34,7 +34,7 @@ const services = [
     title: 'Video Consultation',
     description:
       "Upgrade to video for a richer face-to-face experience. Nikhil Ji walks you through your birth chart in detail, offering deeper insights into your life path and planetary influences.",
-    benefits: ['Face-to-face interaction', 'Detailed chart walkthrough', 'In-depth visual analysis'],
+    benefits: ['Face-to-face interaction'],
     image: '/video.png',
   },
   {

@@ -14,6 +14,8 @@ const menuItems = [
   { label: 'Client Feedback', href: '/feedback' },
   { label: 'Puja & Remedies', href: '/puja-remedies' },
   { label: 'Tantra Removal', href: '/tantra-removal' },
+  { label: 'Education', href: '/education' },
+  { label: 'Products', href: '/products' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -66,7 +68,7 @@ export default function Header() {
             : 'shadow-[0_1px_0_#f0e8c8]'
         )}
       >
-        <div className="max-w-[1200px] mx-auto px-6 h-[68px] flex items-center justify-between gap-4">
+        <div className="max-w-full mx-auto px-6 h-[68px] flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 shrink-0 min-w-0">
             <div className="relative w-[100px] h-[100px] rounded-full overflow-hidden border border-[#e8d080] bg-white shrink-0 shadow-[0_2px_8px_rgba(184,134,11,0.15)]">
               <Image src="/logo.png" alt="NIK ASTRO logo" fill className="object-cover" priority />
@@ -80,7 +82,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "font-['DM_Sans'] px-3 py-2 text-sm font-medium text-[#3a3020] hover:bg-[#fdf8ee] hover:text-[#b8860b] rounded-lg transition-all duration-200 whitespace-nowrap"
+                  "font-['DM_Sans'] px-3 py-2 text-sm  text-[#3a3020] hover:bg-[#fdf8ee] hover:text-[#b8860b] rounded-lg transition-all duration-200 whitespace-nowrap"
                 )}
               >
                 {item.label}

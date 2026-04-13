@@ -10,6 +10,8 @@ const quickLinks = [
   { label: 'Book Consultation', href: '/consultation' },
   { label: 'Sadhna', href: '/sadhna' },
   { label: 'Client Feedback', href: '/feedback' },
+  { label: 'Education', href: '/education' },
+  { label: 'Products', href: '/products' },
 ]
 
 const serviceLinks = [
