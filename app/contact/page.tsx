@@ -1,98 +1,13 @@
 'use client'
 
-import { useState, type ChangeEvent } from 'react'
 import {
   FaPhone, FaMapMarkerAlt, FaWhatsapp,
-  FaFacebook, FaInstagram, FaCheckCircle, FaChevronRight, FaEnvelope,
+  FaFacebook, FaInstagram, FaChevronRight,
 } from 'react-icons/fa'
 import { MdVerified } from 'react-icons/md'
 import { GiStarShuriken } from 'react-icons/gi'
 
-const services = [
-  'Telephonic Consultation',
-  'Video Consultation',
-  'Kundali Milan',
-  'Muhurat',
-  'Astro Vastu',
-  'Puja & Remedies',
-  'Tantra Removal',
-  'Sadhna Program',
-  'Other / General Query',
-]
-
-type ContactForm = {
-  name: string
-  email: string
-  phone: string
-  service: string
-  message: string
-}
-
-type ContactFormErrors = Partial<Record<keyof ContactForm, string>>
-
 export default function Contact() {
-  const [form, setForm] = useState<ContactForm>({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [errors, setErrors] = useState<ContactFormErrors>({})
-  const [apiError, setApiError] = useState('')
-
-  const validate = (): ContactFormErrors => {
-    const e: ContactFormErrors = {}
-    if (!form.name.trim()) e.name = 'Please enter your name'
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()))
-      e.email = 'Please enter a valid email address'
-    if (!form.phone.trim() || !/^\+?[0-9\s\-]{8,15}$/.test(form.phone.trim()))
-      e.phone = 'Please enter a valid phone number'
-    if (!form.service) e.service = 'Please select a service'
-    if (!form.message.trim()) e.message = 'Please write a brief message'
-    return e
-  }
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    const field = name as keyof ContactForm
-    setForm(prev => ({ ...prev, [name]: value }))
-    if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
-    if (apiError) setApiError('')
-  }
-
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    const errs = validate()
-    if (Object.keys(errs).length > 0) { setErrors(errs); return }
-
-    setLoading(true)
-    setApiError('')
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        setApiError(data.error || 'Something went wrong. Please try again.')
-        return
-      }
-
-      setSubmitted(true)
-    } catch {
-      setApiError('Network error. Please check your connection and try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
     <main className="bg-white text-ink">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#080608] via-[#12100a] to-[#1a1508] py-[68px] px-6">
@@ -107,7 +22,7 @@ export default function Contact() {
             Get in <span className="text-[#c9a84c] italic">Touch</span>
           </h1>
           <p className="mb-8 max-w-[480px] font-sans text-[16px] leading-[1.8] text-[#a89060]">
-            To book a consultation or for any enquiry, send a message on WhatsApp first. This is the quickest way to reach Nikhil Ji directly.
+            For consultations or enquiries, the quickest way to reach Nikhil Ji directly is via WhatsApp.
           </p>
           <a href="https://wa.me/918377844158" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#25d366] to-[#1ab854] text-white px-7 py-3 rounded-full font-sans text-[15px] font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:-translate-y-0.5 transition-all duration-300">
             <FaWhatsapp className="text-[20px]" />
@@ -121,129 +36,59 @@ export default function Contact() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-[52px] items-start">
 
-            {/* ── FORM ── */}
+            {/* ── WHATSAPP CONTACT SECTION ── */}
             <div>
-              <p className="section-label">Send an Enquiry</p>
-              <h2 className="mb-1.5 text-[32px] md:text-[36px] leading-[1.2]">Contact <span className="italic text-gold">Nikhil Ji</span></h2>
+              <p className="section-label">Connect Directly</p>
+              <h2 className="mb-1.5 text-[32px] md:text-[36px] leading-[1.2]">Chat with <span className="italic text-gold">Nikhil Ji</span></h2>
               <div className="section-divider-left mb-8" />
 
-              {submitted ? (
-                /* ── SUCCESS STATE ── */
-                <div className="bg-gradient-to-br from-[#f0fdf4] to-[#e8faf0] border border-[#a3e6bc] rounded-[18px] p-11 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#25d366] to-[#1ab854] flex items-center justify-center mx-auto mb-5 shadow-[0_4px_20px_rgba(37,211,102,0.3)]">
-                    <FaCheckCircle className="text-white text-[28px]" />
-                  </div>
-                  <h3 className="font-serif text-[26px] font-semibold text-ink mb-3">Message Received!</h3>
-                  <p className="font-sans text-[#4a6b50] text-[15px] leading-[1.75] max-w-[380px] mx-auto mb-3">
-                    Thank you, <strong>{form.name}</strong>. Your enquiry for <strong>{form.service}</strong> has been noted.
-                  </p>
-                  <p className="font-sans text-[#4a6b50] text-[14px] leading-[1.75] max-w-[380px] mx-auto mb-2">
-                    Nikhil Ji will get back to you on <strong>{form.phone}</strong> soon.
-                  </p>
-                  <p className="font-sans text-[#6b8f6b] text-[13px] mb-7">
-                    A confirmation email has been sent to <strong>{form.email}</strong>.
-                  </p>
-                  <a href="https://wa.me/918377844158" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 bg-gradient-to-br from-[#25d366] to-[#1ab854] text-white text-[14px] px-6 py-2.5 rounded-full font-sans font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
-                    <FaWhatsapp className="text-[17px]" />
-                    Also message on WhatsApp
-                  </a>
-                </div>
-              ) : (
-                /* ── FORM STATE ── */
-                <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-
-                  {/* Name + Phone */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="field-label">Full Name <span className="text-red-500">*</span></label>
-                      <input
-                        id="name" name="name" type="text"
-                        placeholder="Your name"
-                        value={form.name} onChange={handleChange}
-                        className={`input-field ${errors.name ? 'error' : ''}`}
-                      />
-                      {errors.name && <p className="error-text">{errors.name}</p>}
+              <div className="bg-gradient-to-br from-[#fdfaf3] to-white border border-cream-border rounded-[22px] p-8 md:p-10 shadow-sm">
+                <div className="flex flex-col gap-6">
+                  <div className="flex gap-4 items-start">
+                    <div className="bg-gradient-to-br from-[#25d366] to-[#1ab854] rounded-[14px] w-14 h-14 flex items-center justify-center shrink-0 shadow-[0_4px_15px_rgba(37,211,102,0.25)]">
+                      <FaWhatsapp className="text-white text-[28px]" />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="field-label">Phone / WhatsApp <span className="text-red-500">*</span></label>
-                      <input
-                        id="phone" name="phone" type="tel"
-                        placeholder="+91 XXXXX XXXXX"
-                        value={form.phone} onChange={handleChange}
-                        className={`input-field ${errors.phone ? 'error' : ''}`}
-                      />
-                      {errors.phone && <p className="error-text">{errors.phone}</p>}
+                      <h3 className="font-serif text-[22px] font-semibold text-ink mb-2">WhatsApp Consultation</h3>
+                      <p className="font-sans text-[15px] text-body-text leading-[1.7]">
+                        Nikhil Ji personally handles all WhatsApp enquiries. This is the official and fastest channel for booking consultations, puja services, and remedies.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="field-label">Email Address <span className="text-red-500">*</span></label>
-                    <div className="relative">
-                      <FaEnvelope className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#c9a84c] text-[14px] pointer-events-none" />
-                      <input
-                        id="email" name="email" type="email"
-                        placeholder="you@example.com"
-                        value={form.email} onChange={handleChange}
-                        className={`input-field pl-10 ${errors.email ? 'error' : ''}`}
-                        suppressHydrationWarning
-                      />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                    <div className="bg-white border border-cream-border rounded-[14px] p-5 flex flex-col gap-3">
+                      <div className="flex items-center gap-2">
+                        <GiStarShuriken className="text-gold text-xs" />
+                        <span className="font-sans text-[13px] font-semibold text-ink uppercase tracking-wider">Fast Response</span>
+                      </div>
+                      <p className="font-sans text-[13.5px] text-body-text leading-relaxed">
+                        Messages are usually answered within a few hours.
+                      </p>
                     </div>
-                    {errors.email && <p className="error-text">{errors.email}</p>}
-                  </div>
-
-                  {/* Service */}
-                  <div>
-                    <label htmlFor="service" className="field-label">Service Interested In <span className="text-red-500">*</span></label>
-                    <select
-                      id="service" name="service"
-                      value={form.service} onChange={handleChange}
-                      className={`input-field cursor-pointer appearance-none bg-no-repeat bg-[right_14px_center] pr-9 ${errors.service ? 'error' : ''}`}
-                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8860b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")` }}
-                    >
-                      <option value="">Select a service...</option>
-                      {services.map(s => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                    {errors.service && <p className="error-text">{errors.service}</p>}
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label htmlFor="message" className="field-label">Your Message / Query <span className="text-red-500">*</span></label>
-                    <textarea
-                      id="message" name="message"
-                      placeholder="Briefly describe your concern or query..."
-                      value={form.message} onChange={handleChange}
-                      rows={5}
-                      className={`input-field resize-y min-h-[120px] ${errors.message ? 'error' : ''}`}
-                    />
-                    {errors.message && <p className="error-text">{errors.message}</p>}
-                  </div>
-
-                  {/* API Error */}
-                  {apiError && (
-                    <div className="bg-red-50 border border-red-200 rounded-[10px] px-4 py-3">
-                      <p className="font-sans text-[13.5px] text-red-600">{apiError}</p>
+                    <div className="bg-white border border-cream-border rounded-[14px] p-5 flex flex-col gap-3">
+                      <div className="flex items-center gap-2">
+                        <GiStarShuriken className="text-gold text-xs" />
+                        <span className="font-sans text-[13px] font-semibold text-ink uppercase tracking-wider">Direct Access</span>
+                      </div>
+                      <p className="font-sans text-[13.5px] text-body-text leading-relaxed">
+                        No middle-men or staff. Talk directly to Nikhil Ji.
+                      </p>
                     </div>
-                  )}
+                  </div>
 
-                  {/* Note */}
-                  <div className="flex items-start gap-2.5 bg-[#fffdf7] border border-[#f0e8c8] rounded-[10px] p-3 px-4">
-                    <MdVerified className="text-gold text-[15px] mt-0.5 shrink-0" />
-                    <p className="font-sans text-[12.5px] text-subtle-gold leading-[1.6]">
-                      Your details are private and will only be used by Nikhil Ji for consultation purposes. A confirmation will be sent to your email. For fastest response, also message on WhatsApp.
+                  <div className="bg-[#fffdf7] border border-[#f0e8c8] rounded-[14px] p-5 flex items-start gap-3">
+                    <MdVerified className="text-gold text-[18px] mt-0.5 shrink-0" />
+                    <p className="font-sans text-[14px] text-subtle-gold leading-[1.6]">
+                      To start, simply click the button below or save our number <strong>+91 83778 44158</strong> and send your query. Please mention your name and the service you are interested in.
                     </p>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-gradient-to-br from-gold to-[#d4a017] text-white border-none rounded-full py-3.5 font-sans text-[15px] font-semibold cursor-pointer shadow-[0_4px_18px_rgba(184,134,11,0.3)] hover:shadow-[0_6px_26px_rgba(184,134,11,0.42)] hover:-translate-y-px disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300"
-                  >
-                    {loading ? 'Sending Enquiry...' : 'Send Enquiry'}
-                  </button>
-                </form>
-              )}
+                  <a href="https://wa.me/918377844158" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-br from-[#25d366] to-[#1ab854] text-white rounded-full py-4 font-sans text-[16px] font-bold text-center shadow-[0_6px_24px_rgba(37,211,102,0.35)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.45)] hover:-translate-y-0.5 transition-all duration-300">
+                    Send Message on WhatsApp
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* ── CONTACT INFO SIDEBAR ── */}
